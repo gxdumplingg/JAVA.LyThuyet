@@ -26,7 +26,8 @@
 - 3 kiểu dữ liệu object:
 
 | Kiểu dữ liệu          | Mô tả                                                                                                                                                    |
-| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------
+------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Array                 | Một mảng của các dữ liệu cùng kiểu. VD: tên sinh viên                                                                                                    |
 | Lớp (Class)           | Tập hợp các biến và các phương thức.Ví dụ : lớp “Sinhviên” chứa toàn bộ các chi tiết của một sinh viên và các phương thức thực thi trên các chi tiết đó. |
 | Giao diện (Interface) | Là một lớp trừu tượng được tạo ra cho phép cài đặt đa thừa kế trong Java.                                                                                |
@@ -44,7 +45,7 @@ VD: String a = new String("Java");
 
 
 ####1.3. Class object
-
+- Khi khởi tạo, đối tượng được cấp phát một vùng nhớ riêng để lưu trữ các dữ liệu của đối tượng đó. Vùng nhớ lưu trữ các đối tượng là vùng nhớ heap.
 ####1.4. Lớp Wrapper
 - Khi một lớp Wrapper được tạo ra, một tệp mới sẽ được tạo ra và ở đó, chúng ta sẽ lưu trữ các kiểu dữ liệu nguyên thủy. Đối tượng của lớp Wrapper bọc hoặc giữ kiểu dữ liệu nguyên thủy tương ứng của nó.
 
