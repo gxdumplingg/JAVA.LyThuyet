@@ -1,9 +1,9 @@
 #Buổi 3: CÁCH JAVA LƯU TRỮ DỮ LIỆU
-![Alt text](image-4.png)
+![Alt text](image-1.png)
 ## 1. Cách Java lưu trữ dữ liệu
 - Khi một chương trình Java được thực thi, nó sẽ yêu cầu hệ điều hành cấp phát một không gian trên bộ nhớ để lưu trữ toàn bộ dữ liệu và thông tin của nó.
 - Sau đó, nó sẽ chia vùng không gian đó thành 4 vùng nhớ (memory segment) để lưu trữ. 
- ![Alt text](image-1.png)
+![Alt text](image.png)
 
 - Vùng nhớ code (**code segment**), theo như tên gọi của nó, tất cả mã chương trình (**machine code**) được lưu ở đây khi chương trình được thực thi.
 - Vùng nhớ data (**data segment**), đây là nơi lưu trữ những dữ liệu chung của chương trình như các **biến static, constant**,… những biến dữ liệu mà được sinh ra khi chương trình bắt đầu thực thi và chỉ được giải phóng khi chương trình kết thúc.
@@ -12,22 +12,27 @@
 
 - Stack frame (SF)là nơi lưu trữ toàn bộ các **biến của một phương thức (method)**, mỗi phương thức được thực thi sẽ tạo ra một SF. 
 - VD: Ở chương trình dưới ta có 3 method: methodA(), methodB(), main() 
-![Alt text](image-2.png)
+![](image-3.png)
 - Khi chương trình này thực thi, nó sẽ tạo ra 3 SF và push vào vùng nhớ stack theo thứ tự nó được gọi: *main, methodB, methodA.*
 - Với phương thức main() ta có biến c = 30 nên giá trị 30 này sẽ được lưu trữ ở SF main, và biến c này cũng sẽ có phạm vi sử dụng trong phương thức main() mà thôi. 
 
 - Tương tự với các phương thức methodB() và methodA(), ta cũng sẽ có các biến b và a tương ứng. Biến b sẽ được lưu trữ ở SF methodB và chỉ có phạm vi sử dụng ở đó, tương tự cho biến a cũng sẽ được lưu trữ ở SF methodA và chỉ có phạm vi sử dụng ở đây thôi nhé.
 
 - Khi methodA() thực thi xong, SF methodA sẽ được pop ra khỏi vùng nhớ stack, biến a (với giá trị là 10) đồng thời cũng được giải phóng. Sau đó SF methodB sẽ được pop, biến b được giải phóng và cuối cùng là tới SF main và biến c.
-![Alt text](image-3.png)
+![Alt text](image-4.png)
 ####1.1. Biến nguyên thủy (Primitive Value)
 - Tất cả các biến thuộc kiểu dữ liệu tham chiếu đều được lưu trên **vùng nhớ stack**.
+
+VD: int a = 10; 
+- int a là cấp phát một ô nhớ có giá trị 4 byte trên stack. Ô nhớ gồm có value và địa chỉ.
+- a = 10 gán value cho ô nhớ là 10.
+
 ####1.2. Kiểu dữ liệu object
 - 3 kiểu dữ liệu object:
 
 | Kiểu dữ liệu          | Mô tả                                                                                                                                                    |
-| --------
-------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| --------              |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Array                 | Một mảng của các dữ liệu cùng kiểu. VD: tên sinh viên                                                                                                    |
 | Lớp (Class)           | Tập hợp các biến và các phương thức.Ví dụ : lớp “Sinhviên” chứa toàn bộ các chi tiết của một sinh viên và các phương thức thực thi trên các chi tiết đó. |
 | Giao diện (Interface) | Là một lớp trừu tượng được tạo ra cho phép cài đặt đa thừa kế trong Java.                                                                                |
@@ -39,20 +44,34 @@ VD: String a = new String("Java");
 - String(“Java”): Gán giá trị “Java” cho ô nhớ trên vùng nhớ heap.
 - a = new String(“Java”): Gán địa chỉ của đối tượng trên vùng nhớ heap cho value của ô nhớ trên vùng nhớ stack (biến tham chiếu a).
 
-|Primitive Data Type                                                  | Reference Data Type                                                                                |
+| Primitive Data Type                                                  | Reference Data Type                                                                                |
 | -------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
 | Biến được lưu tại vùng nhớ stack, giá trị là các kiểu dữ liệu cơ sở. | Biến được lưu tại vùng nhớ stack, giá trị là địa chỉ của một đối tượng được lưu tại vùng nhớ heap. |
 
 
 ####1.3. Class object
-- Khi khởi tạo, đối tượng được cấp phát một vùng nhớ riêng để lưu trữ các dữ liệu của đối tượng đó. Vùng nhớ lưu trữ các đối tượng là vùng nhớ heap.
-####1.4. Lớp Wrapper
-- Khi một lớp Wrapper được tạo ra, một tệp mới sẽ được tạo ra và ở đó, chúng ta sẽ lưu trữ các kiểu dữ liệu nguyên thủy. Đối tượng của lớp Wrapper bọc hoặc giữ kiểu dữ liệu nguyên thủy tương ứng của nó.
+- Lớp Object là lớp cha của tất cả các lớp trong java. Nói cách khác nó là một lớp cao nhất trong java.
+- Khi một object được tạo ra bằng toán tử new thì một **vùng nhớ trên heap** sẽ được cấp phát.
+- 1 số phương thức của lớp Object:
 
-- Quá trình chuyển đổi các kiểu dữ liệu nguyên thủy thành một đối tượng gọi là boxing. Trong khi sử dụng một lớp wrapper, bạn chỉ cần truyền giá trị của kiểu dữ liệu nguyên thủy cho phương thức khởi tạo của lớp Wrapper.
+| Phương thức                       | Mô tả                                                                                                                         |
+| --------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| public final Class getClass()     | trả về đối tượng lớp Class của đối tượng hiện tại. Từ lớp Class đó có thể lấy được các thông tin metadata của class hiện tại. |
+| public int hashCode()             | trả về số hashcode cho đối tượng hiện tại.                                                                                    |
+| public boolean equals(Object obj) | so sánh đối tượng đã cho với đối tượng hiện tại.                                                                              |
+| public String toString()          | trả về chuỗi ký tự đại diện của đối tượng hiện tại.                                                                           |
 
-- Tất cả các lớp Wrapper Byte, Short, Integer, Long, Double và Float, là các lớp con của lớp trừu tượng Number. Trong khi các lớp của Character và Boolean wrapper là các lớp con của lớp Object.
-####1.5. Boxing
+####1.4. Lớp Wrapper, Boxing và Unboxing
+- Lớp Wrapper trong Java cung cấp cơ chế cho phép chuyển đổi giữa kiểu dữ liệu nguyên thủy và kiểu đối tượng. 
+- Khi một lớp Wrapper được tạo ra, một tệp mới sẽ được tạo ra và ở đó, chúng ta sẽ lưu trữ các **kiểu dữ liệu nguyên thủy**. Đối tượng của lớp Wrapper bọc hoặc giữ kiểu dữ liệu nguyên thủy tương ứng của nó.
+- Các lớp Wrapper cho kiểu dữ liệu nguyên thủy:
+![Alt text](image-5.png)
+- Quá trình chuyển đổi các kiểu dữ liệu nguyên thủy thành một đối tượng gọi là **boxing**. Trong khi sử dụng một lớp Wrapper, bạn chỉ cần truyền giá trị của kiểu dữ liệu nguyên thủy cho phương thức khởi tạo của lớp Wrapper.
+-  **Unboxing** là quá trình mà trong đó trình biên dịch Java sẽ tự động chuyển đổi các đối tượng lớp Wrapper thành các kiểu căn bản tương ứng của chúng.
+- VD:
+![Alt text](image-6.png)
 
-####1.6. Unboxing
-- 
+- Tất cả các lớp Wrapper Byte, Short, Integer, Long, Double và Float là các lớp con của lớp trừu tượng Number. Trong khi các lớp của Character và Boolean wrapper là các lớp con của lớp Object.
+## 2. Các phương thức khởi tạo trong Java
+####2.1. Dùng hàm khởi tạo (constructor)
+- Hàm khởi tạo (constructor) là một hàm có tên giống với tên lớp. Hàm này được gọi khi khởi tạo đối tượng. Hàm khởi tạo không có kiểu trả về
