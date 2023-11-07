@@ -218,7 +218,8 @@ Age: 20
         - Giúp gọi phương thức của lớp cha được ghi đè (overriding) trong lớp con   
         - Giúp truy cập các thuộc tính của lớp cha nếu cả lớp con và lớp cha có các thuộc tính giống tên nhau
         - Giúp gọi hàm khởi tạo có tham số hoặc không có tham số của lớp cha
-- Sử dụng super khi truy xuất đến *Thuộc Tính Và Phương Thức Của Lớp Cha Gần Nhất*
+        
+Sử dụng **super** khi truy xuất đến **Thuộc Tính Và Phương Thức Của Lớp Cha Gần Nhất**
 - Nếu như mục đích đầu tiên của **this** trên kia là để phân biệt đâu là biến và đâu là thuộc tính khi chúng nó bị trùng tên trong một lớp, thì mục đích đầu tiên của **super** là để phân biệt đâu là giá trị của lớp con và đâu là giá trị của lớp cha gần nhất khi chúng bị trùng tên. 
 ``` java
 public class HinhHoc {
@@ -233,7 +234,7 @@ public class HinhTron extends HinhHoc{
         color = "đỏ";
     }
     public void solve(){
-        super.display();
+        super.display(); // gọi phương thức của lớp cha HinhHoc
     }
 
     public static void main(String[] args) {
@@ -245,4 +246,100 @@ public class HinhTron extends HinhHoc{
 Output:
 ```
 Loại hình: Hình tròn, màu đỏ
+```
+
+Sử dụng **super** khi gọi đến 1 constructor của **Lớp Cha gần nhất**
+- Cũng giống với từ khóa **this()**, **super()** chỉ được dùng trong các constructor, nếu bạn để super() này vào các phương thức bình thường khác, sẽ có báo lỗi xảy ra từ hệ thống. Và tương tự, từ khóa super() nếu có, phải được khai báo đầu tiên bên trong một constructor.
+- VD:
+```java
+public class HinhHoc {
+    public String type, color;
+    public HinhHoc(String type, String color){
+      this.type = type;
+      this.color = color;
+    }
+    public void display(){
+        System.out.println("Loại hình: " + type + ", màu " + color);
+    }
+}
+public class HinhTron extends HinhHoc{
+    public HinhTron(){
+        super ("Hình tròn", "đỏ");// gọi đến constructor của lớp cha HinhHoc
+        this.type = type;
+        this.color = color;
+    }
+    public void solve(){
+        super.display(); // gọi phương thức của lớp cha HinhHoc
+        
+    }
+
+    public static void main(String[] args) {
+        HinhTron c1 = new HinhTron();
+        c1.solve();
+    }
+}
+
+```
+Output:
+```
+Loại hình: Hình tròn, màu đỏ
+```
+## 3. Garbage Collectors trong Java
+- Garbage Collectors (GC) là một quá trình tự động thực thi nhiệm vụ quản lý bộ nhớ. Code Java được dịch sang bytecode rồi chạy trên máy ảo Java (JVM). Trong quá trình chạy chương trình, các đối tượng được tạo ở vùng nhớ heap, một phần bộ nhớ dành cho chương trình. Sau cùng, sẽ có một vài đối tượng mà chương trình không cần dùng đến. Các đối tượng này sẽ được **garbage collector** truy tìm và xóa bỏ để thu hồi lại dung lượng bộ nhớ. Khác biệt rất nhiều khi chúng ta làm việc với C/C++, việc quản lý bộ nhớ phải thực hiện "by hand".
+- Garbage collectors là chương trình chạy nền, nó theo dõi toàn bộ các Object trong bộ nhớ (Heap) và tìm ra những Object nào không được dùng nữa (không có Object nào reference đến nó). Toàn bộ những Object không có reference sẽ bị xóa.
+- Quá trình thu gom rác thông qua 3 bước:
+B1: **Marking**: Là bước đánh dấu những Object còn sử dụng và những Object không còn sử dụng.
+![Alt text](image-7.png)
+B2: **Normal deleting**: Trình Garbage Collector sẽ xóa các Object không còn sử dụng
+![Alt text](image-8.png)
+B3: **Deletion with Compacting**: Sau khi những Object không còn được sử dụng bị xóa, những Object còn được sử dụng sẽ được "gom" lại gần nhau -> Tăng hiệu suất sử dụng bộ nhớ trống để cấp phát cho những Object mới.
+![Alt text](image-9.png)
+## 4. Các cách truyền dữ liệu trong Java
+#### 4.1. Pass by value (Truyền tham trị)
+- Nếu gọi một phương thức và truyền 1 giá trị cho phương thức đó được gọi là truyền giá trị (Pass by value). Việc thay đổi giá trị chỉ có hiệu lực trong phương thức được gọi, không có hiệu lực bên ngoài phương thức.
+- Có thể hiểu là khi bạn pass biến vào làm argument cho một function, chương trình sẽ không dùng thẳng biến đó mà sao chép giá trị và đưa cho function, và hệ quả là dù bên trong function xảy ra chuyện gì thì biến thực tế vẫn được bảo toàn
+- VD:
+```java
+public class Circle{
+    public int r = 5;
+    void change (int r){
+        r = r+10;
+    }
+
+    public static void main(String[] args) {
+        Circle c1 = new Circle();
+        System.out.println("Before: r = " + c1.r);
+        c1.change(50);
+        System.out.println("After r = " + c1.r);
+    }
+}
+```
+Output:
+```
+Before: r = 5
+After: r = 5
+```
+#### 4.2. Pass by reference (Truyền tham chiếu)
+- Khi chúng ta gọi 1 phương thức và truyền một tham chiếu cho phương thức đó được gọi là truyền tham chiếu (Pass by reference). Việc thay đổi giá trị của biến tham chiếu bên trong phương thức làm thay đổi giá trị gốc của nó.
+- Ngược lại với **Pass-by-value**, khi pass biến vào làm argument cho một function, chương trình sẽ đưa thẳng biến đó cho function tùy ý xử lý, và hệ quả là nếu bên trong function mà thay đổi giá trị của argument thì biến thực tế bên ngoài cũng bị thay đổi, vì trong trường hợp này biến bên ngoài và biến (argument) của function là một.
+- VD:
+```java
+public class Circle{
+    public int r = 5;
+    void change (Circle c1){
+        c1.r = c1.r+10;
+    }
+
+    public static void main(String[] args) {
+        Circle c1 = new Circle();
+        System.out.println("Before: r = " + c1.r);
+        c1.change(c1);
+        System.out.println("After r = " + c1.r);
+    }
+}
+```
+Output:
+```
+Before: r = 5
+After r = 15
 ```
