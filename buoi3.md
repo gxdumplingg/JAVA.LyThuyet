@@ -69,9 +69,101 @@ VD: String a = new String("Java");
 - Quá trình chuyển đổi các kiểu dữ liệu nguyên thủy thành một đối tượng gọi là **boxing**. Trong khi sử dụng một lớp Wrapper, bạn chỉ cần truyền giá trị của kiểu dữ liệu nguyên thủy cho phương thức khởi tạo của lớp Wrapper.
 -  **Unboxing** là quá trình mà trong đó trình biên dịch Java sẽ tự động chuyển đổi các đối tượng lớp Wrapper thành các kiểu căn bản tương ứng của chúng.
 - VD:
-![Alt text](image-6.png)
-
+``` java
+public class test {
+    public static void main(String[] args) {
+        int primitiveInt = 10;
+        Integer wrapperInt = Integer.valueOf(primitiveInt); // đổi int sang Integer
+        int backToInt = wrapperInt.intValue(); // đổi Integer về int
+        System.out.println(primitiveInt + " " + wrapperInt + " " + backToInt);
+    }
+}
+```
 - Tất cả các lớp Wrapper Byte, Short, Integer, Long, Double và Float là các lớp con của lớp trừu tượng Number. Trong khi các lớp của Character và Boolean wrapper là các lớp con của lớp Object.
 ## 2. Các phương thức khởi tạo trong Java
 ####2.1. Dùng hàm khởi tạo (constructor)
 - Hàm khởi tạo (constructor) là một hàm có tên giống với tên lớp. Hàm này được gọi khi khởi tạo đối tượng. Hàm khởi tạo không có kiểu trả về
+- VD về sử dụng hàm khởi tạo:
+ ```java
+  public class Circle {
+    private double r;
+    private String color;
+    public Circle(){
+        r = 1.0;
+        color = "white";
+    }
+
+    public static void main(String[] args) {
+        Circle c1 = new Circle();
+        System.out.println("Circle has: r = " + c1.r + " " + ", color: " + c1.color);
+    }
+}
+```
+- Output:
+```java
+Circle has: r = 1.0 , color: white
+```
+- Khai báo đối tượng thông qua constructor: *<tên constructor> tên obj = new <tên constructor>();*
+VD: Circle c1 = new Circle();
+- Việc khai báo qua toán tử new -> đối tượng sẽ được phát vùng nhớ trên **bộ nhớ heap** để lưu trữ dữ liệu của đối tượng đó
+
+- Có 2 kiểu constructor trong Java: *Constructor mặc định* (không có tham số truyền vào) và *Constructor tham số*
+
+```java
+  public class Person {
+      private   String name;
+      //constructor mặc định
+      public Person(){
+          name = "Giang";
+      }
+      // constructor có tham số
+      public Person(String ten){
+        name = ten;
+      }
+      public static void main(String args[]){
+        Person a = new Person();
+        Person b = new Person("Giang");
+        System.out.println("My name is " + a.name);
+        System.out.println("Ten toi la " + b.name);
+      }
+  }
+```
+Output:
+```
+My name is Giang
+Ten toi la Giang
+```
+#### Constructor overloading (Nạp chồng constructor)
+- Có thể tạo nhiều constructor trong cùng một lớp với danh sách tham số truyền vào khác nhau. Trình biên dịch phân biệt các constructor này thông qua số lượng và kiểu của các tham số truyền vào.
+- VD:
+```java
+public class Person {
+    private String name;
+    private int age;
+    public Person(){
+        name = "Giang";
+        System.out.println("Ten toi la " + name);
+    }
+    public Person(String ten){
+        name = ten;
+        System.out.println("My name is " + name);
+    }
+    public Person(String ten, int tuoi){
+        name = ten;
+        age = tuoi;
+        System.out.println("Ten: " + name + ", tuoi: " + age);
+    }
+    public static void main(String args[]){
+        Person a = new Person();
+        Person b = new Person("Giang");
+        Person c = new Person("Leo", 20);
+    }
+}
+```
+Output:
+```
+Ten toi la Giang
+My name is Giang
+Ten: Leo, tuoi: 20
+```
+
