@@ -141,22 +141,22 @@ public class Person {
     private String name;
     private int age;
     public Person(){
-        name = "Giang";
+        this.name = "Giang";
         System.out.println("Ten toi la " + name);
     }
     public Person(String ten){
-        name = ten;
+        this.name = ten;
         System.out.println("My name is " + name);
     }
     public Person(String ten, int tuoi){
-        name = ten;
-        age = tuoi;
+        this.name = ten;
+        this.age = tuoi;
         System.out.println("Ten: " + name + ", tuoi: " + age);
     }
     public static void main(String args[]){
         Person a = new Person();
         Person b = new Person("Giang");
-        Person c = new Person("Leo", 20);
+        Person c = new Person("Jane", 20);
     }
 }
 ```
@@ -164,6 +164,85 @@ Output:
 ```
 Ten toi la Giang
 My name is Giang
-Ten: Leo, tuoi: 20
+Ten: Jane, tuoi: 20
 ```
+#### Constructor chaining (Chuỗi xây dựng)
+- Một lớp có thể có nhiều hơn một constructor. Khi một đối tượng được khởi tạo, một trong các constructor sẽ được gọi để khởi tạo đối tượng đó. Constructor chaining là cơ chế cho phép gọi một constructor khác trong cùng lớp hoặc lớp cha của nó, thay vì viết lại các đoạn mã khởi tạo lại thuộc tính của lớp. Điều này cho phép tránh việc lặp lại mã trong các constructor khác nhau và tăng tính tái sử dụng của mã. Constructor chaining gồm 2 loại: **Gọi constructor trong cùng lớp** hoặc **Gọi constructor của lớp cha**
 
+#####Gọi constructor trong cùng lớp
+- Từ khóa **this** được sử dụng để gọi constructor khác trong cùng lớp. Constructor gọi đến sẽ được thực thi trước constructor gọi nó. Lưu ý: Từ khóa “this” phải là câu lệnh đầu tiên trong constructor.
+- VD: 
+```java
+public class Person{
+    private String name;
+    int age;
+    public Person(){
+        this ("Giang", 19);
+    }
+    public Person(String name){
+        this(name, 25);
+    }
+    public Person(String name, int age){
+        this.name = name;
+        this.age = age;
+    }
+    void display(){
+        System.out.println("Name: " + name);
+        System.out.println("Age: " + age);
+    }
+    public static void main(String[] args) {
+        Person p1 = new Person();
+        p1.display();
+        Person p2 = new Person("Alex");
+        p2.display();
+        Person p3 = new Person("Jane", 20);
+        p3.display();
+    }
+}
+
+```
+Output:
+```
+Name: Giang
+Age: 19
+Name: Alex
+Age: 25
+Name: Jane
+Age: 20
+```
+- Trong VD trên, constructor đầu tiên không có tham số và gọi constructor thứ 2 bằng từ khóa “this”. Constructor thứ 2 lại gọi constructor thứ 3 để khởi tạo các thuộc tính của lớp. Khi một đối tượng Person được khởi tạo, constructor đầu tiên sẽ được gọi và đến constructor thứ 3 để khởi tạo các thuộc tính của lớp Person.
+
+#####Gọi constructor của lớp cha
+- Từ khóa **super** được sử dụng để gọi constructor của lớp cha. Constructor của lớp cha sẽ được thực thi trước constructor của lớp con.  Lưu ý: từ khoá super phải là câu lệnh đầu tiên trong constructor.
+- Từ khóa super trong Java được sử dụng trong lớp con (subclass) để truy cập các thành phần trong lớp cha (superclass):
+        - Giúp gọi phương thức của lớp cha được ghi đè (overriding) trong lớp con   
+        - Giúp truy cập các thuộc tính của lớp cha nếu cả lớp con và lớp cha có các thuộc tính giống tên nhau
+        - Giúp gọi hàm khởi tạo có tham số hoặc không có tham số của lớp cha
+- Sử dụng super khi truy xuất đến *Thuộc Tính Và Phương Thức Của Lớp Cha Gần Nhất*
+- Nếu như mục đích đầu tiên của **this** trên kia là để phân biệt đâu là biến và đâu là thuộc tính khi chúng nó bị trùng tên trong một lớp, thì mục đích đầu tiên của **super** là để phân biệt đâu là giá trị của lớp con và đâu là giá trị của lớp cha gần nhất khi chúng bị trùng tên. 
+``` java
+public class HinhHoc {
+    public String type, color;
+    public void display(){
+        System.out.println("Loại hình: " + type + ", màu " + color);
+    }
+}
+public class HinhTron extends HinhHoc{
+    public HinhTron(){
+        type = "Hình tròn";
+        color = "đỏ";
+    }
+    public void solve(){
+        super.display();
+    }
+
+    public static void main(String[] args) {
+        HinhTron c1 = new HinhTron();
+        c1.solve();
+    }
+}
+```
+Output:
+```
+Loại hình: Hình tròn, màu đỏ
+```
