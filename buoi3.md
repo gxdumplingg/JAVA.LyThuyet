@@ -12,7 +12,21 @@
 
 - Stack frame (SF)là nơi lưu trữ toàn bộ các **biến của một phương thức (method)**, mỗi phương thức được thực thi sẽ tạo ra một SF. 
 - VD: Ở chương trình dưới ta có 3 method: methodA(), methodB(), main() 
-![](image-3.png)
+```java
+public static void methodA(){
+    int a = 10;
+    System.out.println(a);
+}
+public static void methodB(){
+    int b = 20; 
+    System.out.println(b);
+    methodA();
+}
+public static void main(String[] args){
+    int c  = 30;
+    methodB();
+}
+```
 - Khi chương trình này thực thi, nó sẽ tạo ra 3 SF và push vào vùng nhớ stack theo thứ tự nó được gọi: *main, methodB, methodA.*
 - Với phương thức main() ta có biến c = 30 nên giá trị 30 này sẽ được lưu trữ ở SF main, và biến c này cũng sẽ có phạm vi sử dụng trong phương thức main() mà thôi. 
 
@@ -343,3 +357,4 @@ Output:
 Before: r = 5
 After r = 15
 ```
+
