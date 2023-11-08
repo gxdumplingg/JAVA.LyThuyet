@@ -1,5 +1,13 @@
 #Buổi 3: CÁCH JAVA LƯU TRỮ DỮ LIỆU
-![Alt text](image-1.png)
+- [1. Cách Java lưu trữ dữ liệu](#1-cách-java-lưu-trữ-dữ-liệu)
+- [2. Các phương thức khởi tạo trong Java](#2-các-phương-thức-khởi-tạo-trong-java)
+    - [Constructor overloading (Nạp chồng constructor)](#constructor-overloading-nạp-chồng-constructor)
+    - [Constructor chaining (Chuỗi xây dựng)](#constructor-chaining-chuỗi-xây-dựng)
+- [3. Garbage Collectors trong Java](#3-garbage-collectors-trong-java)
+- [4. Các cách truyền dữ liệu trong Java](#4-các-cách-truyền-dữ-liệu-trong-java)
+    - [4.1. Pass by value (Truyền tham trị)](#41-pass-by-value-truyền-tham-trị)
+    - [4.2. Pass by reference (Truyền tham chiếu)](#42-pass-by-reference-truyền-tham-chiếu)
+
 ## 1. Cách Java lưu trữ dữ liệu
 - Khi một chương trình Java được thực thi, nó sẽ yêu cầu hệ điều hành cấp phát một không gian trên bộ nhớ để lưu trữ toàn bộ dữ liệu và thông tin của nó.
 - Sau đó, nó sẽ chia vùng không gian đó thành 4 vùng nhớ (memory segment) để lưu trữ. 
@@ -302,11 +310,11 @@ Loại hình: Hình tròn, màu đỏ
 - Garbage Collectors (GC) là một quá trình tự động thực thi nhiệm vụ quản lý bộ nhớ. Code Java được dịch sang bytecode rồi chạy trên máy ảo Java (JVM). Trong quá trình chạy chương trình, các đối tượng được tạo ở vùng nhớ heap, một phần bộ nhớ dành cho chương trình. Sau cùng, sẽ có một vài đối tượng mà chương trình không cần dùng đến. Các đối tượng này sẽ được **garbage collector** truy tìm và xóa bỏ để thu hồi lại dung lượng bộ nhớ. Khác biệt rất nhiều khi chúng ta làm việc với C/C++, việc quản lý bộ nhớ phải thực hiện "by hand".
 - Garbage collectors là chương trình chạy nền, nó theo dõi toàn bộ các Object trong bộ nhớ (Heap) và tìm ra những Object nào không được dùng nữa (không có Object nào reference đến nó). Toàn bộ những Object không có reference sẽ bị xóa.
 - Quá trình thu gom rác thông qua 3 bước:
-B1: **Marking**: Là bước đánh dấu những Object còn sử dụng và những Object không còn sử dụng.
+- B1: **Marking**: Là bước đánh dấu những Object còn sử dụng và những Object không còn sử dụng.
 ![Alt text](image-7.png)
-B2: **Normal deleting**: Trình Garbage Collector sẽ xóa các Object không còn sử dụng
+- B2: **Normal deleting**: Trình Garbage Collector sẽ xóa các Object không còn sử dụng
 ![Alt text](image-8.png)
-B3: **Deletion with Compacting**: Sau khi những Object không còn được sử dụng bị xóa, những Object còn được sử dụng sẽ được "gom" lại gần nhau -> Tăng hiệu suất sử dụng bộ nhớ trống để cấp phát cho những Object mới.
+- B3: **Deletion with Compacting**: Sau khi những Object không còn được sử dụng bị xóa, những Object còn được sử dụng sẽ được "gom" lại gần nhau -> Tăng hiệu suất sử dụng bộ nhớ trống để cấp phát cho những Object mới.
 ![Alt text](image-9.png)
 ## 4. Các cách truyền dữ liệu trong Java
 #### 4.1. Pass by value (Truyền tham trị)
