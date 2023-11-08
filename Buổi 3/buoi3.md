@@ -57,11 +57,11 @@ VD: int a = 10;
 #### 1.2. Kiểu dữ liệu object
 - 3 kiểu dữ liệu object:
 
-| Kiểu dữ liệu  | Mô tả  |
-|---|---|
-|Array    |Một mảng của các dữ liệu cùng kiểu. VD: tên sinh viên                            |
-| Lớp (Class)     | Tập hợp các biến và các phương thức.Ví dụ : lớp “Sinhviên” chứa toàn bộ các chi tiết của một sinh viên và các phương thức thực thi trên các chi tiết đó.  |
-|Giao diện (Interface)    |Là một lớp trừu tượng được tạo ra cho phép cài đặt đa thừa kế trong Java.    |
+| Kiểu dữ liệu          | Mô tả                                                                                                                                                    |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Array                 | Một mảng của các dữ liệu cùng kiểu. VD: tên sinh viên                                                                                                    |
+| Lớp (Class)           | Tập hợp các biến và các phương thức.Ví dụ : lớp “Sinhviên” chứa toàn bộ các chi tiết của một sinh viên và các phương thức thực thi trên các chi tiết đó. |
+| Giao diện (Interface) | Là một lớp trừu tượng được tạo ra cho phép cài đặt đa thừa kế trong Java.                                                                                |
 - Những biến thuộc kiểu dữ liệu tham chiếu (hay biến tham chiếu) sẽ được lưu tại **vùng nhớ stack** và đối tượng sinh ra (*sau toán tử new*) sẽ được lưu tại **vùng nhớ heap**. Giá trị của biến tham chiếu chính là địa chỉ của đối tượng được sinh ra đó. (Biến được lưu tại vùng nhớ stack, giá trị là địa chỉ của một đối tượng được lưu tại vùng nhớ heap).
 
 VD: String a = new String("Java");
