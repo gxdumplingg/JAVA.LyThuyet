@@ -1,12 +1,17 @@
-#Buổi 3: CÁCH JAVA LƯU TRỮ DỮ LIỆU
-- [1. Cách Java lưu trữ dữ liệu](#1-cách-java-lưu-trữ-dữ-liệu)
-- [2. Các phương thức khởi tạo trong Java](#2-các-phương-thức-khởi-tạo-trong-java)
-    - [Constructor overloading (Nạp chồng constructor)](#constructor-overloading-nạp-chồng-constructor)
-    - [Constructor chaining (Chuỗi xây dựng)](#constructor-chaining-chuỗi-xây-dựng)
-- [3. Garbage Collectors trong Java](#3-garbage-collectors-trong-java)
-- [4. Các cách truyền dữ liệu trong Java](#4-các-cách-truyền-dữ-liệu-trong-java)
-    - [4.1. Pass by value (Truyền tham trị)](#41-pass-by-value-truyền-tham-trị)
-    - [4.2. Pass by reference (Truyền tham chiếu)](#42-pass-by-reference-truyền-tham-chiếu)
+# Buổi 3: CÁCH JAVA LƯU TRỮ DỮ LIỆU
+- [Buổi 3: CÁCH JAVA LƯU TRỮ DỮ LIỆU](#buổi-3-cách-java-lưu-trữ-dữ-liệu)
+  - [1. Cách Java lưu trữ dữ liệu](#1-cách-java-lưu-trữ-dữ-liệu)
+      - [1.1. Biến nguyên thủy (Primitive Value)](#11-biến-nguyên-thủy-primitive-value)
+      - [1.2. Kiểu dữ liệu object](#12-kiểu-dữ-liệu-object)
+      - [1.3. Class object](#13-class-object)
+      - [1.4. Lớp Wrapper, Boxing và Unboxing](#14-lớp-wrapper-boxing-và-unboxing)
+  - [2. Các phương thức khởi tạo trong Java](#2-các-phương-thức-khởi-tạo-trong-java)
+      - [Constructor overloading (Nạp chồng constructor)](#constructor-overloading-nạp-chồng-constructor)
+      - [Constructor chaining (Chuỗi xây dựng)](#constructor-chaining-chuỗi-xây-dựng)
+  - [3. Garbage Collectors trong Java](#3-garbage-collectors-trong-java)
+  - [4. Các cách truyền dữ liệu trong Java](#4-các-cách-truyền-dữ-liệu-trong-java)
+      - [4.1. Pass by value (Truyền tham trị)](#41-pass-by-value-truyền-tham-trị)
+      - [4.2. Pass by reference (Truyền tham chiếu)](#42-pass-by-reference-truyền-tham-chiếu)
 
 ## 1. Cách Java lưu trữ dữ liệu
 - Khi một chương trình Java được thực thi, nó sẽ yêu cầu hệ điều hành cấp phát một không gian trên bộ nhớ để lưu trữ toàn bộ dữ liệu và thông tin của nó.
@@ -42,14 +47,14 @@ public static void main(String[] args){
 
 - Khi methodA() thực thi xong, SF methodA sẽ được pop ra khỏi vùng nhớ stack, biến a (với giá trị là 10) đồng thời cũng được giải phóng. Sau đó SF methodB sẽ được pop, biến b được giải phóng và cuối cùng là tới SF main và biến c.
 ![Alt text](image-4.png)
-####1.1. Biến nguyên thủy (Primitive Value)
+#### 1.1. Biến nguyên thủy (Primitive Value)
 - Tất cả các biến thuộc kiểu dữ liệu tham chiếu đều được lưu trên **vùng nhớ stack**.
 
 VD: int a = 10; 
 - int a là cấp phát một ô nhớ có giá trị 4 byte trên stack. Ô nhớ gồm có value và địa chỉ.
 - a = 10 gán value cho ô nhớ là 10.
 
-####1.2. Kiểu dữ liệu object
+#### 1.2. Kiểu dữ liệu object
 - 3 kiểu dữ liệu object:
 
 | Kiểu dữ liệu          | Mô tả                                                                                                                                                    |
@@ -71,7 +76,7 @@ VD: String a = new String("Java");
 | Biến được lưu tại vùng nhớ stack, giá trị là các kiểu dữ liệu cơ sở. | Biến được lưu tại vùng nhớ stack, giá trị là địa chỉ của một đối tượng được lưu tại vùng nhớ heap. |
 
 
-####1.3. Class object
+#### 1.3. Class object
 - Lớp Object là lớp cha của tất cả các lớp trong java. Nói cách khác nó là một lớp cao nhất trong java.
 - Khi một object được tạo ra bằng toán tử new thì một **vùng nhớ trên heap** sẽ được cấp phát.
 - 1 số phương thức của lớp Object:
@@ -83,7 +88,7 @@ VD: String a = new String("Java");
 | public boolean equals(Object obj) | so sánh đối tượng đã cho với đối tượng hiện tại.                                                                              |
 | public String toString()          | trả về chuỗi ký tự đại diện của đối tượng hiện tại.                                                                           |
 
-####1.4. Lớp Wrapper, Boxing và Unboxing
+#### 1.4. Lớp Wrapper, Boxing và Unboxing
 - Lớp Wrapper trong Java cung cấp cơ chế cho phép chuyển đổi giữa kiểu dữ liệu nguyên thủy và kiểu đối tượng. 
 - Khi một lớp Wrapper được tạo ra, một tệp mới sẽ được tạo ra và ở đó, chúng ta sẽ lưu trữ các **kiểu dữ liệu nguyên thủy**. Đối tượng của lớp Wrapper bọc hoặc giữ kiểu dữ liệu nguyên thủy tương ứng của nó.
 - Các lớp Wrapper cho kiểu dữ liệu nguyên thủy:
@@ -315,6 +320,7 @@ Loại hình: Hình tròn, màu đỏ
 - B2: **Normal deleting**: Trình Garbage Collector sẽ xóa các Object không còn sử dụng
 ![Alt text](image-8.png)
 - B3: **Deletion with Compacting**: Sau khi những Object không còn được sử dụng bị xóa, những Object còn được sử dụng sẽ được "gom" lại gần nhau -> Tăng hiệu suất sử dụng bộ nhớ trống để cấp phát cho những Object mới.
+
 ![Alt text](image-9.png)
 ## 4. Các cách truyền dữ liệu trong Java
 #### 4.1. Pass by value (Truyền tham trị)
