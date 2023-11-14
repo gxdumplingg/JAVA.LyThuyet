@@ -6,12 +6,15 @@
       - [1.3. Class object](#13-class-object)
       - [1.4. Lớp Wrapper, Boxing và Unboxing](#14-lớp-wrapper-boxing-và-unboxing)
   - [2. Các phương thức khởi tạo trong Java](#2-các-phương-thức-khởi-tạo-trong-java)
+      - [2.1. Dùng hàm khởi tạo (constructor)](#21-dùng-hàm-khởi-tạo-constructor)
       - [Constructor overloading (Nạp chồng constructor)](#constructor-overloading-nạp-chồng-constructor)
       - [Constructor chaining (Chuỗi xây dựng)](#constructor-chaining-chuỗi-xây-dựng)
+        - [Gọi constructor trong cùng lớp](#gọi-constructor-trong-cùng-lớp)
+        - [Gọi constructor của lớp cha](#gọi-constructor-của-lớp-cha)
   - [3. Garbage Collectors trong Java](#3-garbage-collectors-trong-java)
   - [4. Các cách truyền dữ liệu trong Java](#4-các-cách-truyền-dữ-liệu-trong-java)
       - [4.1. Pass by value (Truyền tham trị)](#41-pass-by-value-truyền-tham-trị)
-      - [4.2. Pass by reference (Truyền tham chiếu)](#42-pass-by-reference-truyền-tham-chiếu)
+        - [- Không có truyền tham chiếu trong Java](#--không-có-truyền-tham-chiếu-trong-java)
 
 ## 1. Cách Java lưu trữ dữ liệu
 - Khi một chương trình Java được thực thi, nó sẽ yêu cầu hệ điều hành cấp phát một không gian trên bộ nhớ để lưu trữ toàn bộ dữ liệu và thông tin của nó.
@@ -107,7 +110,7 @@ public class test {
 ```
 - Tất cả các lớp Wrapper Byte, Short, Integer, Long, Double và Float là các lớp con của lớp trừu tượng Number. Trong khi các lớp của Character và Boolean wrapper là các lớp con của lớp Object.
 ## 2. Các phương thức khởi tạo trong Java
-####2.1. Dùng hàm khởi tạo (constructor)
+#### 2.1. Dùng hàm khởi tạo (constructor)
 - Hàm khởi tạo (constructor) là một hàm có tên giống với tên lớp. Hàm này được gọi khi khởi tạo đối tượng. Hàm khởi tạo không có kiểu trả về
 - VD về sử dụng hàm khởi tạo:
  ```java
@@ -195,7 +198,7 @@ Ten: Jane, tuoi: 20
 #### Constructor chaining (Chuỗi xây dựng)
 - Một lớp có thể có nhiều hơn một constructor. Khi một đối tượng được khởi tạo, một trong các constructor sẽ được gọi để khởi tạo đối tượng đó. Constructor chaining là cơ chế cho phép gọi một constructor khác trong cùng lớp hoặc lớp cha của nó, thay vì viết lại các đoạn mã khởi tạo lại thuộc tính của lớp. Điều này cho phép tránh việc lặp lại mã trong các constructor khác nhau và tăng tính tái sử dụng của mã. Constructor chaining gồm 2 loại: **Gọi constructor trong cùng lớp** hoặc **Gọi constructor của lớp cha**
 
-#####Gọi constructor trong cùng lớp
+##### Gọi constructor trong cùng lớp
 - Từ khóa **this** được sử dụng để gọi constructor khác trong cùng lớp. Constructor gọi đến sẽ được thực thi trước constructor gọi nó. Lưu ý: Từ khóa “this” phải là câu lệnh đầu tiên trong constructor.
 - VD: 
 ```java
@@ -238,7 +241,7 @@ Age: 20
 ```
 - Trong VD trên, constructor đầu tiên không có tham số và gọi constructor thứ 2 bằng từ khóa “this”. Constructor thứ 2 lại gọi constructor thứ 3 để khởi tạo các thuộc tính của lớp. Khi một đối tượng Person được khởi tạo, constructor đầu tiên sẽ được gọi và đến constructor thứ 3 để khởi tạo các thuộc tính của lớp Person.
 
-#####Gọi constructor của lớp cha
+##### Gọi constructor của lớp cha
 - Từ khóa **super** được sử dụng để gọi constructor của lớp cha. Constructor của lớp cha sẽ được thực thi trước constructor của lớp con.  Lưu ý: từ khoá super phải là câu lệnh đầu tiên trong constructor.
 - Từ khóa super trong Java được sử dụng trong lớp con (subclass) để truy cập các thành phần trong lớp cha (superclass):
         - Giúp gọi phương thức của lớp cha được ghi đè (overriding) trong lớp con   
@@ -346,28 +349,7 @@ Output:
 Before: r = 5
 After: r = 5
 ```
-#### 4.2. Pass by reference (Truyền tham chiếu)
-- Khi chúng ta gọi 1 phương thức và truyền một tham chiếu cho phương thức đó được gọi là truyền tham chiếu (Pass by reference). Việc thay đổi giá trị của biến tham chiếu bên trong phương thức làm thay đổi giá trị gốc của nó.
-- Ngược lại với **Pass-by-value**, khi pass biến vào làm argument cho một function, chương trình sẽ đưa thẳng biến đó cho function tùy ý xử lý, và hệ quả là nếu bên trong function mà thay đổi giá trị của argument thì biến thực tế bên ngoài cũng bị thay đổi, vì trong trường hợp này biến bên ngoài và biến (argument) của function là một.
-- VD:
-```java
-public class Circle{
-    public int r = 5;
-    void change (Circle c1){
-        c1.r = c1.r+10;
-    }
 
-    public static void main(String[] args) {
-        Circle c1 = new Circle();
-        System.out.println("Before: r = " + c1.r);
-        c1.change(c1);
-        System.out.println("After r = " + c1.r);
-    }
-}
-```
-Output:
-```
-Before: r = 5
-After r = 15
-```
+##### - Không có truyền tham chiếu trong Java
 
+    
