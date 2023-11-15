@@ -18,7 +18,7 @@
         - [Upcasting là gì?](#upcasting-là-gì)
         - [Downcasting là gì?](#downcasting-là-gì)
       - [Ví dụ về đa hình lúc runtime trong java](#ví-dụ-về-đa-hình-lúc-runtime-trong-java)
-      - [3. Tính đa hình trong lúc thực thi (compile)](#3-tính-đa-hình-trong-lúc-thực-thi-compile)
+      - [3. Tính đa hình trong lúc biên dịch (compile)](#3-tính-đa-hình-trong-lúc-biên-dịch-compile)
 
 # Buổi 4: Mọi thứ đều là đối tượng
 ## I. Tính đóng gói (Encapsulation) trong Java
@@ -360,7 +360,7 @@ public class Splender extends Bike {
 }
 ```
 
-#### 3. Tính đa hình trong lúc thực thi (compile)
+#### 3. Tính đa hình trong lúc biên dịch (compile)
 - Đa hình trong lúc biên dịch (compile): được sử dụng bằng cách **nạp chồng hàm (overloading).**
 - Nạp chồng hàm:
 Ta có thể sử dụng cùng một tên gọi cho các hàm "Giống nhau" (cùng mục đích) nhưng phải khác nhau về kiểu dữ liệu tham số hoặc số lượng tham số.
