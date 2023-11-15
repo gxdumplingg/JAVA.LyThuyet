@@ -399,23 +399,4 @@ Output:
 8
 5.5
 11
-```- [Buổi 4: Mọi thứ đều là đối tượng](#buổi-4-mọi-thứ-đều-là-đối-tượng)
-  - [I. Tính đóng gói (Encapsulation) trong Java](#i-tính-đóng-gói-encapsulation-trong-java)
-      - [1. Tính đóng gói trong Java là gì?](#1-tính-đóng-gói-trong-java-là-gì)
-      - [2. Tại sao cần tính đóng gói?](#2-tại-sao-cần-tính-đóng-gói)
-  - [II. Tính kế thừa trong Java](#ii-tính-kế-thừa-trong-java)
-      - [1. Tính kế thừa trong Java là gì?](#1-tính-kế-thừa-trong-java-là-gì)
-      - [2. Tại sao lại dùng tính kế thừa trong Java?](#2-tại-sao-lại-dùng-tính-kế-thừa-trong-java)
-      - [3. Cú pháp của tính kế thừa](#3-cú-pháp-của-tính-kế-thừa)
-      - [4. Các loại kế thừa trong Java](#4-các-loại-kế-thừa-trong-java)
-        - [Đơn kế thừa (Single Inheritance)](#đơn-kế-thừa-single-inheritance)
-        - [Kế thừa đa cấp ((Multilevel inheritance))](#kế-thừa-đa-cấp-multilevel-inheritance)
-        - [Kế thừa thứ bậc (Hierarchical Inheritance)](#kế-thừa-thứ-bậc-hierarchical-inheritance)
-  - [III. Tính đa hình trong Java](#iii-tính-đa-hình-trong-java)
-      - [1. Tính đa hình (Polymorphism) là gì?](#1-tính-đa-hình-polymorphism-là-gì)
-        - [Tại sao cần tính đa hình?](#tại-sao-cần-tính-đa-hình)
-      - [2. Tính đa hình lúc runtime trong Java](#2-tính-đa-hình-lúc-runtime-trong-java)
-        - [Upcasting là gì?](#upcasting-là-gì)
-        - [Downcasting là gì?](#downcasting-là-gì)
-      - [Ví dụ về đa hình lúc runtime trong java](#ví-dụ-về-đa-hình-lúc-runtime-trong-java)
-      - [3. Tính đa hình trong lúc thực thi (compile)](#3-tính-đa-hình-trong-lúc-thực-thi-compile)
+```
