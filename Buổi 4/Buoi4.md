@@ -359,7 +359,10 @@ public class Splender extends Bike {
     }
 }
 ```
-
+Output:
+```
+running safely with 60km
+```
 #### 3. Tính đa hình trong lúc biên dịch (compile)
 - Đa hình trong lúc biên dịch (compile): được sử dụng bằng cách **nạp chồng hàm (overloading).**
 - Nạp chồng hàm:
