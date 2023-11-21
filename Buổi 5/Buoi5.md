@@ -18,16 +18,16 @@
         - [2.8. Checkout](#28-checkout)
         - [2.9. Fork repository](#29-fork-repository)
         - [2.10. Clone](#210-clone)
-- [III. Pull Request](#iii-pull-request)
+  - [III. Pull Request](#iii-pull-request)
         - [Tại sao Pull Request quan trọng](#tại-sao-pull-request-quan-trọng)
         - [Các bước tạo 1 Pull Request](#các-bước-tạo-1-pull-request)
   - [IV. UML](#iv-uml)
       - [1. UML là gì?](#1-uml-là-gì)
-  - [V. Mô hình Class Diagram, Activity Diagram](#v-mô-hình-class-diagram-activity-diagram)
-      - [1. Mô hình Class Diagram (biểu đồ lớp)](#1-mô-hình-class-diagram-biểu-đồ-lớp)
+      - [2.. Mô hình Class Diagram, Activity Diagram](#2-mô-hình-class-diagram-activity-diagram)
+        - [2.1. Mô hình Class Diagram (biểu đồ lớp)](#21-mô-hình-class-diagram-biểu-đồ-lớp)
           - [Một lớp có các thành phần sau](#một-lớp-có-các-thành-phần-sau)
           - [Liên kết giữa các lớp](#liên-kết-giữa-các-lớp)
-      - [2. Mô hình Activity Diagram](#2-mô-hình-activity-diagram)
+        - [2.2. Mô hình Activity Diagram](#22-mô-hình-activity-diagram)
           - [Các thành phần của biểu đồ hoạt động](#các-thành-phần-của-biểu-đồ-hoạt-động)
 
 
@@ -130,7 +130,7 @@ Vd: Cập nhật code ở branch feature_new ở local với từ remote thì b�
 ##### 2.10. Clone
 - Git clone là một lệnh để tải xuống mã nguồn hiện có từ một kho lưu trữ từ xa (ví dụ Github). Nói cách khác, Git clone về cơ bản tạo một bản sao giống hệt phiên bản mới nhất của một dự án trong một kho lưu trữ và lưu nó vào máy tính của bạn.
 - Có một số cách để tải xuống mã nguồn, nhưng chủ yếu mọi người vẫn dùng cách sao chép bằng https: `git clone <https://name-of-the-repository-link>`
-# III. Pull Request
+## III. Pull Request
 - Pull Request (PR) là một yêu cầu được tạo ra bởi 1 nhóm hoặc 1 lập trình viên để đề xuất thay đổi từ một nhánh chính (thường là main hoặc master) sang một nhánh khác của dự án trên GitHub. Thông qua PR, người tạo yêu cầu có thể trình bày sự thay đổi, giải thích tại sao thay đổi đó cần thiết và cung cấp thông tin chi tiết về quá trình triển khai.
 
 - Pull Request không chỉ giúp tách biệt quá trình xây dựng và đánh giá mà còn thúc đẩy tính bảo mật và kiểm tra chất lượng. Những người khác có thể xem xét, thảo luận và đưa ra ý kiến phản hồi về thay đổi trước khi hợp nhất chúng vào nhánh chính của dự án.
@@ -161,11 +161,11 @@ Vd: Cập nhật code ở branch feature_new ở local với từ remote thì b�
   - Biểu đồ lớp (Class Diagram)
   - Biểu đồ hoạt động (Activity Diagram)
   - ...
-## V. Mô hình Class Diagram, Activity Diagram
+#### 2.. Mô hình Class Diagram, Activity Diagram
 - Theo UML, thì hệ thống có thể được mô tả theo 2 mô hình tĩnh (Static Model) và mô hình động (Dynamic Model).
   - Static Model: mô tả cấu trúc của hệ thống bao gồm các bản vẽ Class Diagram, Object Diagram, Component Diagram và Deployment Diagram.
   - Dynamic Model: mô tả các hoạt động bên trong hệ thống bao gồm các bản vẽ Activity Diagram, State Diagram, Sequence Diagram, Collaboration Diagram.
-#### 1. Mô hình Class Diagram (biểu đồ lớp)
+##### 2.1. Mô hình Class Diagram (biểu đồ lớp)
 - Một biểu đồ lớp chỉ ra cấu trúc tĩnh của các lớp trong hệ thống. Các lớp là đại diện cho các “đối tượng” được xử lý trong hệ thống. Các lớp có thể quan hệ với nhau trong nhiều dạng thức:
   - liên kết (associated - được nối kết với nhau)
   - phụ thuộc (dependent - một lớp này phụ thuộc vào lớp khác)
@@ -207,7 +207,7 @@ Vd: Cập nhật code ở branch feature_new ở local với từ remote thì b�
 ▫ Đa kế thừa (Multiple inheritance)
   - Là mối liên hệ “là một loại” (“is a kind of”)
 
-#### 2. Mô hình Activity Diagram
+##### 2.2. Mô hình Activity Diagram
 - Activity Diagram là bản vẽ tập trung vào mô tả các hoạt động, luồng xử lý bên trong hệ thống.
 - Đối với những luồng thực thi có nhiều tiến trình chạy song song thì biểu đồ hoạt động là sự lựa chọn tối ưu cho việc thể hiện. 
 
