@@ -1,3 +1,12 @@
+- [\[Buổi 7\] Interface và trừu tượng](#buổi-7-interface-và-trừu-tượng)
+  - [1. Tính trừu tượng là gì?](#1-tính-trừu-tượng-là-gì)
+  - [2. Lớp trừu tượng](#2-lớp-trừu-tượng)
+      - [Phương thức trừu tượng Abstract trong Java](#phương-thức-trừu-tượng-abstract-trong-java)
+  - [3. Interface là gì?](#3-interface-là-gì)
+      - [Triển khai interface](#triển-khai-interface)
+      - [Đa kế thừa trong Java bởi Interface](#đa-kế-thừa-trong-java-bởi-interface)
+  - [4. Sự khác nhau giữa Interface và Abstract Class](#4-sự-khác-nhau-giữa-interface-và-abstract-class)
+      - [Khi nào sử dụng Abstract Class và Interface?](#khi-nào-sử-dụng-abstract-class-và-interface)
 
 # [Buổi 7] Interface và trừu tượng
 
@@ -10,7 +19,7 @@
 - Lớp trừu tượng có thể có các phương thức abstract hoặc non-abtract.
 - Lớp trừu tượng có thể khai báo 0, 1 hoặc nhiều method trừu tượng bên trong.
 - Không thể khởi tạo 1 đối tượng trực tiếp từ một class trừu tượng.
-- Abstraction Ckass không thể khởi tạo tham số mà chỉ khai báo, nó được dùng như 1 **lớp cha** của các lớp có cùng bản chất như kiểu, loại, nhiệm vụ.
+- Abstraction Class không thể khởi tạo tham số mà chỉ khai báo, nó được dùng như 1 **lớp cha** của các lớp có cùng bản chất như kiểu, loại, nhiệm vụ.
 - 1 lớp kế thừa từ lớp trừu tượng không cần phải implement non-abstract methods, nhưng những method nào có abstract thì bắt buộc phải **override**, trừ khi subclass cũng là abstract.
 - Syntax:
 ```java
@@ -200,7 +209,7 @@ class A4 implements Printable, Showable {
 |Từ khóa `abstract` được sử dụng để khai báo lớp trừu tượng|Từ khóa `interface` được sử dụng để khai báo Interface|
 |Không cần thiết|Mọi phương thức, property của interface cần được hiện thực trong class.|
  
-#### Khi nào sử dung Abstract Class và Interface?
+#### Khi nào sử dụng Abstract Class và Interface?
 - Interface : Sử dụng Interface khi bạn muốn tạo dựng một bộ khung chuẩn gồm các chức năng (method/ function) mà tất cả module/ project cần phải có.
 
 - Abstract class: Khi chúng ta chỉ có thể hoàn thành một vài chức năng (method/ function) chuẩn của hệ thống, một vài chức năng còn lại các lớp extends phải hoàn thành. VD 1 đối tượng có những chức năng A,B,C trong đó tính năng A,B chắc chắn sẽ thực thi theo cách nào đó, còn tính năng C phải tùy thuộc vào đối tượng cụ thể là gì, như đối tượng Dog, Cat tuy chúng đều có thể phát ra âm thanh nhưng âm thanh là khác nhau. Vì vậy method Speak() là `abstract method` để chỉ ra rằng tính năng này còn dang dở chưa rõ thực thi, các lớp `extends` phải hoàn thành nốt tính năng này, còn những tính năng đã hoàn thành vẫn sử dụng như bình thường đây là những tính năng chung.
