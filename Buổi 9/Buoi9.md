@@ -1,3 +1,4 @@
+
 - [BUỔI 9: LUÔN CÓ NGOẠI LỆ, XỬ LÍ NGOẠI LỆ](#buổi-9-luôn-có-ngoại-lệ-xử-lí-ngoại-lệ)
     - [I. Làm quen với Exception](#i-làm-quen-với-exception)
         - [1. Exception là gì?](#1-exception-là-gì)
@@ -22,6 +23,7 @@
 ### I. Làm quen với Exception
 ##### 1. Exception là gì?
 - Exception là một sự kiện xảy ra trong quá trình thực thi một chương trình Java, nó làm phá vỡ **flow** (luồng xử lý) bình thường của một chương trình, thậm chí chết chương trình.
+
 - Exception có thể xảy ra với nhiều lý do khác nhau, nằm ngoài dự tính của chương trình, có thể xảy ra bởi lỗi của người dùng, của lập trình viên hoặc từ lỗi của nguồn dữ liệu vật lý. Chẳng hạn như:
   - Người dùng nhập dữ liệu không hợp lệ.
   - Truy cập ngoài chỉ số mảng.
