@@ -1,3 +1,22 @@
+- [BUỔI 9: LUÔN CÓ NGOẠI LỆ, XỬ LÍ NGOẠI LỆ](#buổi-9-luôn-có-ngoại-lệ-xử-lí-ngoại-lệ)
+    - [I. Làm quen với Exception](#i-làm-quen-với-exception)
+        - [1. Exception là gì?](#1-exception-là-gì)
+        - [2. Phân loại Exception](#2-phân-loại-exception)
+          - [2.1. Error](#21-error)
+          - [2.2. Checked exceptions](#22-checked-exceptions)
+          - [2.3. Unchecked exceptions](#23-unchecked-exceptions)
+    - [II. Xử lý Exception](#ii-xử-lý-exception)
+        - [1. Khối try-catch trong Java](#1-khối-try-catch-trong-java)
+        - [2. Sử dụng finally](#2-sử-dụng-finally)
+    - [III. Cây phân cấp Exception, phân biệt throw và throws](#iii-cây-phân-cấp-exception-phân-biệt-throw-và-throws)
+        - [1. Cây phân cấp Exception](#1-cây-phân-cấp-exception)
+        - [2. Phân biệt throw và throws](#2-phân-biệt-throw-và-throws)
+          - [a. Từ khóa throw](#a-từ-khóa-throw)
+          - [b. Từ khóa throws trong Java](#b-từ-khóa-throws-trong-java)
+          - [c. Phân biệt throw và throws](#c-phân-biệt-throw-và-throws)
+    - [IV. Tạo ra Exception của riêng mình](#iv-tạo-ra-exception-của-riêng-mình)
+        - [Tại sao cần sử dụng Custom Exception?](#tại-sao-cần-sử-dụng-custom-exception)
+
 # BUỔI 9: LUÔN CÓ NGOẠI LỆ, XỬ LÍ NGOẠI LỆ
 
 ### I. Làm quen với Exception
