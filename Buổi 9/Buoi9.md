@@ -38,6 +38,7 @@
 - Lớp Error định nghĩa các ngoại lệ mà không thể bắt (catch) từ chương trình.
 - Ví dụ: OutOfMemoryError, VirtualMachineError, and StackOverflowError
 - VD chương trình đệ quy vô tận sẽ có Error:
+
 ![alt text](image-2.png)
 ![alt text](image-3.png)
 
