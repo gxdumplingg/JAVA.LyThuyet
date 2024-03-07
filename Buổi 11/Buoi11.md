@@ -97,7 +97,7 @@ public class Rectangle extends Shape{
 - Nguyên tắc `KISS (Keep It Simple, Stupid)` hay còn được biết đến với 1 số biến thể `Keep It Simple and Short`, `Keep It Small and Simple` hay `Keep It Short and Straightforward`, nhưng tựu chung lại thì nó là: 
 > Hãy làm mọi thứ đơn giản lại, hướng đến sự đơn giản, rõ ràng trong mọi vấn đề
 - KISS có nghĩa là giữ cho code thật đơn giản, càng đơn giản, ngắn gọn càng tốt, viết code để người khác vừa đọc đã hiểu mình đang viết gì, đang thực hiện gì.
-- VD:
+<!-- - VD:
 ```java
 public static boolean isEven(int number){
     if (number & 1) return false;
@@ -116,7 +116,7 @@ public static boolean isEven(int number){
   - Chia nhỏ task để code 1 cách rõ ràng.
   - Giới hạn mỗi method chỉ nên từ 30-50 lines, và mỗi method chỉ nên thực hiện 1 chức năng.
   - Hiểu rõ các vấn đề trước khi code.
-  - Không nên sử dụng nhiều câu lệnh If trong 1 method, hãy tách nó ra thành các method khác nhau.
+  - Không nên sử dụng nhiều câu lệnh If trong 1 method, hãy tách nó ra thành các method khác nhau. -->
 ### 2. DRY - Don't Repeat Yourself
 - DRY: “Don’t Repeat Yourself” – `Đừng bao giờ lặp lại code`.
 - Đừng lặp lại code ở đây là không lặp lại các đoạn code giống nhau, các method thực hiện chức năng như nhau, cố gắng gom chúng lại 1 cách gọn gàng và có thể dùng lại khi cần.
